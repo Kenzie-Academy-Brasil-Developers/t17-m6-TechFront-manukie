@@ -7,9 +7,9 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <AuthProvider>
-        <RoutesMain />
-      </AuthProvider>
+        <AuthProvider>
+            <RoutesMain />
+        </AuthProvider>
     </>
   )
 }

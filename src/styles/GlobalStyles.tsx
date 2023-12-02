@@ -2,15 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
    :root {
-    --color-red-900: #a10d0d;
-    --color-red-800: #c01515;
-    --color-red-700: #d21919;
-    --color-red-600: #e51e1e;
-    --color-red-500: #f32121;
-    --color-red-400: #f54242;
-    --color-red-300: #f66464;
-    --color-red-200: #f99090;
-    --color-red-100: #fbbbbb;
+    --color-blue-901: #006ba6;
+    --color-blue-900: #0d47a1;
+    --color-blue-800: #1565c0;
+    --color-blue-700: #1976d2;
+    --color-blue-600: #1e88e5;
+    --color-blue-500: #2196f3;
+    --color-blue-400: #42a5f5;
+    --color-blue-300: #64b5f6;
+    --color-blue-200: #90caf9;
+    --color-blue-100: #bbdefb;
     --color-gray-900: #212121;
     --color-gray-800: #424242;
     --color-gray-700: #616161;
@@ -20,17 +21,15 @@ export default createGlobalStyle`
     --color-gray-300: #e0e0e0;
     --color-gray-200: #eeeeee;
     --color-gray-100: #f5f5f5;
+    --Font-Primary: 'Nunito', sans-serif;
 
     font-size: 60%;   
+    
   }
-
-  /* font-size: 16px;
-  1rem = 10px
-  */
 
   @media (min-width: 700px) {
     :root {
-      font-size: 62.5%; // root font-size: 10px;
+      font-size: 62.5%; 
     }
   }
   
