@@ -1,6 +1,7 @@
 import { Contact } from "../../pages/dashboard";
-import React from "react";
-import { CardContainer, CardHeader, CardParagraph, DeleteButton } from "./styles";
+import React, { useState } from "react";
+import { EditContactModal } from "../ModalEditContact";
+import { CardContainer, CardHeader, CardParagraph, DeleteButton, EditButton, ButtonArea } from "./styles";
 
 interface CardProps {
   contact: Contact;
@@ -8,9 +9,16 @@ interface CardProps {
   onDelete: () => Promise<void>;
 }
 
-export const Card: React.FC<CardProps> = ({ contact, onDelete }) => {
+export const Card: React.FC<CardProps> = ({ contact, setContacts, onDelete }) => {
   const { name, email, phone, description, joined_at } = contact;
   const formattedDate = new Date(joined_at).toLocaleString();
+  const [isOpenEditModal, setIsOpenEditModal] = useState(false);
+  const [contactToEdit, setContactToEdit] = useState<Contact | null>(null);
+
+  const toggleEditModal = () => {
+    setIsOpenEditModal(!isOpenEditModal);
+    setContactToEdit(contact);
+  };
 
   const handleDelete = async () => {
     try {
@@ -27,9 +35,23 @@ export const Card: React.FC<CardProps> = ({ contact, onDelete }) => {
       <CardParagraph>Celular: {phone}</CardParagraph>
       <CardParagraph>Descrição: {description}</CardParagraph>
       <CardParagraph>Adicionado em: {formattedDate}</CardParagraph>
-      <DeleteButton type="button" onClick={handleDelete}>
-        Apagar contato
-      </DeleteButton>
+      <ButtonArea>
+        <DeleteButton type="button" onClick={handleDelete}>
+          Apagar contato
+        </DeleteButton>
+        <EditButton type="button" onClick={toggleEditModal}>
+          Editar
+        </EditButton>
+      </ButtonArea>
+
+      {isOpenEditModal && (
+        <EditContactModal
+          contactToEdit={contactToEdit}
+          setContactToEdit={setContactToEdit}
+          setContacts={setContacts}
+          toggleModal={toggleEditModal}
+        />
+      )}
     </CardContainer>
   );
 };

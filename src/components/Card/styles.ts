@@ -32,3 +32,23 @@ export const DeleteButton = styled.button`
     background-color: #d43f28;
   }
 `;
+
+export const EditButton = styled.button`
+  background-color: var(--color-blue-300);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-blue-500);
+  }
+`;
+
+export const ButtonArea = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
