@@ -25,8 +25,8 @@ export const ContactButton = styled.button`
     width: 120px;
     height: 40px;
     border-radius: 8px;
-    margin-top: 8px;
-    margin-bottom: 10px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 
     &:hover {
       background: var(--color-blue-100);

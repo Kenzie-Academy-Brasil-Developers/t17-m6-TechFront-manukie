@@ -61,6 +61,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signOut = () => {
     localStorage.removeItem("sorcery-contacts:token");
+    navigate("/")
   };
   
 

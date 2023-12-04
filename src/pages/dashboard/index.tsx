@@ -6,6 +6,7 @@ import { ModalAddContact } from "../../components/ModalAddContact";
 import { GlobalReset } from "../../styles/Reset";
 import GlobalStyles from "../../styles/GlobalStyles";
 import { Header } from "../../components/Header";
+import { useAuth } from "../../hooks/useAuth";
 
 export interface Contact {
   id: string;
@@ -20,6 +21,7 @@ export interface Contact {
 export const UserPage = () => {
   const [contacts, setContacts] = useState<Contact[]>([]);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const { signOut } = useAuth();
 
   useEffect(() => {
     const fetchContacts = async () => {
@@ -76,6 +78,10 @@ export const UserPage = () => {
             <Board>{renderBoard(contacts)}</Board>
           )}
         </main>
+
+        <footer>
+          <ContactButton onClick={signOut}>Sair</ContactButton>
+        </footer>
       </Container>
     </div>
   );
