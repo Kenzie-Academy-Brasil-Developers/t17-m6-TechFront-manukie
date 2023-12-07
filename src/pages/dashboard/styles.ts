@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin-top: 100px;
+  margin-top: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `;
 
 export const Board = styled.div`
